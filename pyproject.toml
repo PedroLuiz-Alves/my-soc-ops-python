@@ -26,7 +26,18 @@ target-version = "py313"
 line-length = 88
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "N", "W"]
+select = ["E", "F", "I", "N", "W", "UP", "ANN"]
+# E: pycodestyle errors
+# F: pyflakes (includes F841 for unused variables)
+# I: isort (import sorting)
+# N: pep8-naming (naming conventions)
+# W: pycodestyle warnings
+# UP: pyupgrade (modern Python syntax)
+# ANN: flake8-annotations (type hints)
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["ANN001", "ANN002", "ANN003", "ANN201", "ANN202"]
+"app/main.py" = ["ANN002"]  # Allow *args without annotation (FastAPI patterns)
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -1,32 +1,32 @@
 <div id="game-container">
-<div class="flex flex-col min-h-full bg-gray-50">
+<div class="flex flex-col min-h-full" style="background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);">
     <!-- Header -->
-    <header class="flex items-center justify-between p-3 bg-white border-b border-gray-200">
+    <header class="flex items-center justify-between p-4 bg-marvel-red border-b-4 border-black shadow-lg">
         <button
             hx-post="/reset"
             hx-target="#game-container"
             hx-swap="outerHTML"
-            class="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100">
-            ← Back
+            class="text-white text-sm px-4 py-2 font-bold border-2 border-black bg-marvel-blue hover:bg-black transition-colors">
+            ← BACK
         </button>
-        <h1 class="font-bold text-gray-900">Soc Ops</h1>
+        <h1 class="font-black text-white text-2xl comic-title">SOC OPS</h1>
         <div class="w-16"></div>
     </header>
 
     <!-- Instructions -->
-    <p class="text-center text-gray-500 text-sm py-2 px-4">
-        Tap a square when you find someone who matches it.
+    <p class="text-center text-marvel-gold text-sm py-3 px-4 font-bold comic-outline" style="-webkit-text-stroke: 1px #000;">
+        TAP A SQUARE WHEN YOU FIND SOMEONE WHO MATCHES!
     </p>
 
     <!-- Bingo indicator -->
     {% if session.has_bingo %}
-    <div class="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-        🎉 BINGO! You got a line!
+    <div class="bg-marvel-gold text-black text-center py-3 font-black text-lg border-b-4 border-black animate-glow">
+        💥 BINGO! YOU GOT A LINE! 💥
     </div>
     {% endif %}
 
     <!-- Board -->
-    <div class="flex-1 flex items-center justify-center p-3">
+    <div class="flex-1 flex items-center justify-center p-4">
         {% include "components/bingo_board.html" %}
     </div>
 </div>

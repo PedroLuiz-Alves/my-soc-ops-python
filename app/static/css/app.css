@@ -6,8 +6,20 @@ body,
 }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'Arial', 'Helvetica', sans-serif;
     -webkit-tap-highlight-color: transparent;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+}
+
+/* Marvel Comic Book Theme */
+:root {
+    --marvel-red: #e60000;
+    --marvel-blue: #003da5;
+    --marvel-gold: #ffd700;
+    --marvel-yellow: #ffeb3b;
+    --marvel-white: #f5f5f5;
+    --marvel-dark: #1a1a2e;
+    --marvel-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* Tailwind-like utility classes */
@@ -55,9 +67,15 @@ body {
 .bg-gray-100 { background-color: #f3f4f6; }
 .bg-amber-100 { background-color: #fef3c7; }
 .bg-amber-200 { background-color: #fde68a; }
-.bg-accent { background-color: #2563eb; }
-.bg-marked { background-color: #dcfce7; }
-.bg-black\/50 { background-color: rgba(0, 0, 0, 0.5); }
+.bg-accent { background-color: var(--marvel-red); }
+.bg-marked { background-color: #ffeb3b; }
+.bg-black\/50 { background-color: rgba(0, 0, 0, 0.75); }
+
+/* Marvel brand colors */
+.bg-marvel-red { background-color: var(--marvel-red); }
+.bg-marvel-blue { background-color: var(--marvel-blue); }
+.bg-marvel-gold { background-color: var(--marvel-gold); }
+.bg-marvel-dark { background-color: var(--marvel-dark); }
 
 .text-white { color: #ffffff; }
 .text-gray-500 { color: #6b7280; }
@@ -70,6 +88,12 @@ body {
 .text-amber-500 { color: #f59e0b; }
 .text-amber-800 { color: #92400e; }
 .text-amber-900 { color: #78350f; }
+
+/* Marvel text colors */
+.text-marvel-red { color: var(--marvel-red); }
+.text-marvel-blue { color: var(--marvel-blue); }
+.text-marvel-gold { color: var(--marvel-gold); }
+.text-marvel-yellow { color: var(--marvel-yellow); }
 
 .text-xs { font-size: 0.75rem; line-height: 1rem; }
 .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
@@ -90,6 +114,12 @@ body {
 .border-gray-300 { border-color: #d1d5db; }
 .border-amber-400 { border-color: #fbbf24; }
 .border-marked-border { border-color: #22c55e; }
+
+/* Marvel borders */
+.border-marvel-red { border-color: var(--marvel-red); }
+.border-marvel-blue { border-color: var(--marvel-blue); }
+.border-marvel-gold { border-color: var(--marvel-gold); }
+.border-comic-thick { border-width: 3px; }
 
 .rounded { border-radius: 0.25rem; }
 .rounded-lg { border-radius: 0.5rem; }
@@ -160,4 +190,138 @@ button:disabled {
 
 .animate-\[bounce_0\.5s_ease-out\] {
     animation: bounce 0.5s ease-out;
+}
+
+/* Marvel Comic Book Styles */
+
+/* Comic book pop effect */
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+}
+
+@keyframes burst {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.5); }
+}
+
+.animate-pop {
+    animation: pop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Comic book text effect */
+.comic-title {
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    text-shadow: 
+        3px 3px 0px rgba(0, 0, 0, 0.3),
+        -1px -1px 0px rgba(255, 255, 255, 0.2);
+}
+
+.comic-outline {
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
+    paint-order: stroke fill;
+}
+
+/* Comic book bubble effect */
+.comic-bubble {
+    position: relative;
+    background: linear-gradient(135deg, var(--marvel-yellow) 0%, #ffcc00 100%);
+    border: 3px solid rgba(0, 0, 0, 0.8);
+    box-shadow: 
+        3px 3px 0px rgba(0, 0, 0, 0.4),
+        -2px 2px 0px rgba(255, 255, 255, 0.3);
+}
+
+.comic-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 0 solid transparent;
+    border-top: 15px solid var(--marvel-yellow);
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* Comic book card effect */
+.comic-card {
+    background: linear-gradient(135deg, var(--marvel-white) 0%, #eeeeee 100%);
+    border: 3px solid #000;
+    box-shadow: 
+        4px 4px 0px rgba(0, 0, 0, 0.5),
+        8px 8px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.comic-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.1) 2px,
+            rgba(255, 255, 255, 0.1) 4px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.1) 2px,
+            rgba(255, 255, 255, 0.1) 4px
+        );
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+/* Bold button style */
+.btn-marvel {
+    position: relative;
+    font-weight: 900;
+    font-size: 1.125rem;
+    letter-spacing: 0.05em;
+    border: 3px solid #000;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn-marvel:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.btn-marvel:not(:active) {
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+/* Halftone dot pattern */
+.halftone {
+    background-image: radial-gradient(circle, currentColor 2px, transparent 2px);
+    background-size: 6px 6px;
+}
+
+/* Comic book grid background */
+.comic-grid {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
 }

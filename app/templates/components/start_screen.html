@@ -1,25 +1,41 @@
 <div id="game-container">
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
+<div class="flex flex-col items-center justify-center min-h-full p-6" style="background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);">
     <div class="text-center max-w-sm">
-        <h1 class="text-4xl font-bold text-gray-900 mb-2">Soc Ops</h1>
-        <p class="text-lg text-gray-600 mb-8">Social Bingo</p>
+        <!-- Marvel Logo-like Title -->
+        <div class="mb-6 animate-pop">
+            <h1 class="text-5xl font-bold text-marvel-red mb-2 comic-title" style="text-shadow: 3px 3px 0px #003da5, 6px 6px 0px rgba(0,0,0,0.5);">SOC OPS</h1>
+            <p class="text-3xl font-bold text-marvel-gold comic-outline" style="-webkit-text-stroke: 2px #000;">SOCIAL BINGO</p>
+        </div>
 
-        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-            <h2 class="font-semibold text-gray-800 mb-3">How to play</h2>
-            <ul class="text-left text-gray-600 text-sm space-y-2">
-                <li>• Find people who match the questions</li>
-                <li>• Tap a square when you find a match</li>
-                <li>• Get 5 in a row to win!</li>
+        <!-- Comic Card -->
+        <div class="comic-card p-6 mb-8 border-3 border-black">
+            <h2 class="font-bold text-gray-900 mb-4 text-lg comic-outline">HOW TO PLAY</h2>
+            <ul class="text-left text-gray-800 text-sm space-y-3 font-semibold">
+                <li class="flex items-start">
+                    <span class="text-marvel-red mr-3 text-lg font-bold">⚡</span>
+                    <span>Find people who match the questions</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-marvel-red mr-3 text-lg font-bold">⚡</span>
+                    <span>Tap a square when you find a match</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-marvel-red mr-3 text-lg font-bold">⚡</span>
+                    <span>Get 5 in a row to WIN!</span>
+                </li>
             </ul>
         </div>
 
+        <!-- Action Button -->
         <button
             hx-post="/start"
             hx-target="#game-container"
             hx-swap="outerHTML"
-            class="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors">
-            Start Game
+            class="btn-marvel w-full bg-marvel-red text-white py-4 px-8 text-lg border-3 border-black hover:bg-marvel-blue transition-all duration-200">
+            🚀 START GAME 🚀
         </button>
+
+        <p class="text-marvel-gold text-xs mt-6 font-bold" style="text-shadow: 1px 1px 0px #000;">With Great Power Comes Great Bingo</p>
     </div>
 </div>
 </div>

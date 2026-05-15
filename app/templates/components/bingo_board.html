@@ -1,4 +1,4 @@
-<div class="grid grid-cols-5 gap-1 w-full max-w-md mx-auto aspect-square">
+<div class="grid grid-cols-5 gap-2 w-full max-w-md mx-auto aspect-square p-2" style="background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%); border: 4px solid #000; border-radius: 8px;">
     {% for square in session.board %}
     {% set is_winning = square.id in session.winning_square_ids %}
     <button
@@ -8,19 +8,19 @@
         hx-swap="outerHTML"
         {% endif %}
         {% if square.is_free_space %}disabled{% endif %}
-        class="relative flex items-center justify-center p-1 text-center border border-gray-300 rounded transition-all duration-150 select-none min-h-[60px] text-xs leading-tight
+        class="relative flex items-center justify-center p-2 text-center border-3 border-black rounded transition-all duration-150 select-none font-bold text-xs leading-tight
         {%- if square.is_marked %}
-            {%- if is_winning %} bg-amber-200 border-amber-400 text-amber-900
-            {%- else %} bg-marked border-marked-border text-green-800
+            {%- if is_winning %} bg-marvel-gold text-black shadow-lg animate-pop
+            {%- else %} bg-marvel-yellow text-black shadow-md
             {%- endif %}
-        {%- else %} bg-white text-gray-700 active:bg-gray-100
+        {%- else %} bg-white text-gray-800 hover:bg-gray-100 active:bg-gray-200 shadow-md
         {%- endif %}
-        {%- if square.is_free_space %} font-bold text-sm{% endif %}"
+        {%- if square.is_free_space %} bg-marvel-red text-white font-black text-sm{% endif %}"
         aria-pressed="{{ 'true' if square.is_marked else 'false' }}"
         aria-label="{{ 'Free space' if square.is_free_space else square.text }}">
         <span class="wrap-break-word hyphens-auto">{{ square.text }}</span>
         {% if square.is_marked and not square.is_free_space %}
-        <span class="absolute top-0.5 right-0.5 text-green-600 text-xs">✓</span>
+        <span class="absolute top-1 right-1 text-lg font-black">✓</span>
         {% endif %}
     </button>
     {% endfor %}
